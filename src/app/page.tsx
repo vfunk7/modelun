@@ -1,103 +1,155 @@
-import Image from "next/image";
+import Image from 'next/image';
+import Link from 'next/link';
 
-export default function Home() {
+const galleryImages = [
+  '/delegate_landscape.JPG',
+  '/delegate_landscape_2.JPG',
+  '/delegate_landscape_3.JPG',
+  '/delegate_landscape_4.JPG',
+  '/awards_landscape.jpg',
+  '/placards.JPG',
+  '/coaches_landscape.JPG',
+  '/delegate_resources.JPG',
+  '/delegates_working.JPG',
+];
+
+export default function HomePage() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
+    <>
+      {/* HERO SECTION - FLIPPED BACKGROUND IMAGE, LEFT-ALIGNED TEXT OVERLAY */}
+      <section className="relative w-screen h-[90vh] min-h-[600px] flex items-center justify-start overflow-hidden bg-[#010f71]">
+        <Image 
+          src="/home_landscape.JPG" 
+          alt="DragonMUN Conference" 
+          fill
           priority
+          className="object-cover w-full h-full absolute inset-0 z-0 scale-x-[-1]"
         />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+        <div className="absolute inset-0 bg-gradient-to-r from-[#010f71]/80 to-transparent z-10" />
+        <div className="relative z-20 flex flex-col items-start justify-center h-full text-left max-w-2xl px-12">
+          <h1 className="text-white font-extrabold text-6xl sm:text-7xl md:text-8xl drop-shadow-lg mb-6 tracking-tight font-['Roboto_Condensed']">
+            <span className="opacity-80">This Is</span> <span className="text-[#EAB308]">DragonMUN.</span>
+          </h1>
+          <p className="text-white text-2xl sm:text-3xl font-semibold mb-8 max-w-xl font-['Roboto_Condensed']">Where the next generation of diplomats, leaders, and changemakers meet.</p>
+          <div className="flex gap-4">
+            <Link href="/register" className="px-8 py-4 bg-[#EAB308] text-[#010f71] font-bold rounded-lg text-lg shadow hover:bg-[#EAB308]/90 transition font-['Roboto_Condensed']">Register</Link>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+      </section>
+
+      {/* ABOUT DRAGONMUN SECTION */}
+      <section className="bg-white py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center gap-12">
+          <div className="flex-1 text-justify md:w-3/4 max-w-4xl">
+            <div className="w-full text-justify max-w-5xl mx-auto">
+              <h2 className="text-4xl font-extrabold text-[#010f71] mb-6 tracking-tight font-['Roboto_Condensed']">About DragonMUN</h2>
+              <p className="text-lg text-gray-700 mb-4 font-['Roboto_Condensed'] text-justify">
+                DragonMUN is a Saint George's College student-led conference to foster dialogue and understanding of global affairs among our fellow students of various contexts.
+              </p>
+              <p className="text-lg text-gray-700 mb-4 font-['Roboto_Condensed'] text-justify">
+                DragonMUN was born as an idea that has since evolved to become the most successful Model UN conference in the country. We welcome students from varying backgrounds and ideas to create an instance of mutual cooperation, collaboration, and unity in order to foster global learning.
+              </p>
+              <p className="text-lg text-gray-700 mb-4 font-['Roboto_Condensed'] text-justify">
+                We pride ourselves in being student-led; that is, the Saint George's College MUN & Debate Team elects its Secretariat for the year, a body which handles all aspects of organising DragonMUN.
+              </p>
+              <p className="text-lg text-gray-700 font-['Roboto_Condensed'] text-justify">
+                Whether you're a seasoned delegate or new to MUN, DragonMUN offers a unique experience to grow, connect, and make an impact.
+              </p>
+            </div>
+          </div>
+          <div className="flex-1 flex justify-end">
+            <div className="w-80 h-96 relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white">
+              <Image 
+                src="/delegate_vertical_2.JPG" 
+                alt="DragonMUN Delegate" 
+                fill 
+                className="object-cover object-center" 
+                priority
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* SPECIAL GUESTS SECTION */}
+      <section className="bg-[#f5f7fa] py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-4xl font-extrabold text-[#010f71] mb-12 text-left tracking-tight font-['Roboto_Condensed']">Special Guests</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-12">
+            <div className="flex flex-col items-center">
+              <div className="w-56 h-56 rounded-full overflow-hidden shadow-2xl mb-6 border-4 border-white flex items-center justify-center bg-white">
+                <Image 
+                  src="/ambassador_vertical.JPG" 
+                  alt="Bernadette Meehan" 
+                  width={224} 
+                  height={224} 
+                  className="w-full h-full object-cover object-center scale-125" 
+                  style={{objectPosition: 'center', transform: 'scale(1.25)'}} 
+                />
+              </div>
+              <span className="text-xl font-semibold text-[#010f71] text-center font-['Roboto_Condensed']">Bernadette Meehan<br /><span className='font-normal text-base text-gray-600'>US Ambassador to Chile</span></span>
+            </div>
+            <div className="flex flex-col items-center">
+              <div className="w-56 h-56 rounded-full overflow-hidden shadow-2xl mb-6 border-4 border-white flex items-center justify-center bg-white">
+                <Image 
+                  src="/ruminot_landscape.JPG" 
+                  alt="José García Ruminot" 
+                  width={224} 
+                  height={224} 
+                  className="w-full h-full object-cover object-center scale-125" 
+                  style={{objectPosition: 'center', transform: 'scale(1.25)'}} 
+                />
+              </div>
+              <span className="text-xl font-semibold text-[#010f71] text-center font-['Roboto_Condensed']">José García Ruminot<br /><span className='font-normal text-base text-gray-600'>President of the Senate of Chile</span></span>
+            </div>
+            <div className="flex flex-col items-center">
+              <div className="w-56 h-56 rounded-full overflow-hidden shadow-2xl mb-6 border-4 border-white flex items-center justify-center bg-white">
+                <Image 
+                  src="/van_klaveren_landscape.JPG" 
+                  alt="Alberto van Klaveren" 
+                  width={224} 
+                  height={224} 
+                  className="w-full h-full object-cover object-center scale-125" 
+                  style={{objectPosition: 'center', transform: 'scale(1.25)'}} 
+                />
+              </div>
+              <span className="text-xl font-semibold text-[#010f71] text-center font-['Roboto_Condensed']">Alberto van Klaveren<br /><span className='font-normal text-base text-gray-600'>Minister of Foreign Affairs of Chile</span></span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* GALLERY SECTION - FEATURE AWARDS IMAGE */}
+      <section className="bg-white py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-4xl font-extrabold text-[#010f71] mb-12 text-left tracking-tight font-['Roboto_Condensed']">Conference Highlights</h2>
+          <div className="w-full mb-12 flex justify-center">
+            <div className="rounded-2xl overflow-hidden shadow-2xl border-4 border-white w-full max-w-4xl">
+              <Image 
+                src="/awards_landscape.jpg" 
+                alt="DragonMUN Awards Ceremony" 
+                width={1200} 
+                height={600} 
+                className="w-full h-[400px] object-cover object-center" 
+                priority
+              />
+            </div>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+            {galleryImages.filter(img => img !== '/awards_landscape.jpg').map((src, idx) => (
+              <div key={src} className="rounded-2xl overflow-hidden shadow-lg">
+                <Image 
+                  src={src} 
+                  alt={`Conference Highlight ${idx + 1}`} 
+                  width={400} 
+                  height={300} 
+                  className="w-full h-56 object-cover"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    </>
   );
-}
+} 
